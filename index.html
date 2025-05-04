@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡¿Qué está haciendo?!</title> <link rel="stylesheet" href="css/style.css"> </head>
+<body>
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>Verificando sesión...</p>
+    </div>
+<div class="auth-container">
+    <h1>¡¿Qué está haciendo?!</h1>
+
+    <div id="loginSection" class="auth-section active">
+        <h2>Iniciar Sesión</h2>
+        <form id="loginForm" novalidate>
+            <label for="loginEmail">Correo Electrónico:</label>
+            <input type="email" id="loginEmail" name="email" required autocomplete="email">
+
+            <label for="loginPassword">Contraseña:</label>
+            <div class="password-wrapper"> <input type="password" id="loginPassword" name="password" required autocomplete="current-password">
+                <span id="loginToggle" class="password-toggle" title="Mostrar/Ocultar contraseña">👁️</span> </div>
+
+            <div id="loginMessage" class="message"></div>
+            <button type="submit" id="loginButton" data-original-text="Iniciar Sesión">Iniciar Sesión</button>
+        </form>
+        <button id="goToSignUpBtn" class="link-button">¿No tienes cuenta? Regístrate aquí</button>
+        <button id="goToPasswordResetBtn" class="link-button">¿Olvidaste contraseña?</button>
+        <button class="link-button privacyPolicyLink">Política de Privacidad</button>
+    </div>
+
+    <div id="signupSection" class="auth-section">
+        <h2>Crear Cuenta Nueva</h2>
+        <form id="signupForm" novalidate>
+            <label for="signupEmail">Correo Electrónico:</label>
+            <input type="email" id="signupEmail" name="email" required autocomplete="email">
+
+            <label for="signupPassword">Contraseña (mín. 6 caracteres):</label>
+            <div class="password-wrapper">
+                <input type="password" id="signupPassword" name="password" required autocomplete="new-password" minlength="6">
+                <span id="signupToggle" class="password-toggle" title="Mostrar/Ocultar contraseña">👁️</span> </div>
+
+            <label for="confirmPassword">Confirmar Contraseña:</label>
+            <div class="password-wrapper">
+                <input type="password" id="confirmPassword" name="confirmPassword" required autocomplete="new-password" minlength="6">
+                <span id="confirmToggle" class="password-toggle" title="Mostrar/Ocultar contraseña">👁️</span> </div>
+
+            <div id="signupMessage" class="message"></div>
+            <button type="submit" id="signupButton" data-original-text="Registrarse">Registrarse</button>
+        </form>
+        <button id="goToLoginFromSignUpBtn" class="link-button">¿Ya tienes cuenta? Inicia sesión</button>
+        <button class="link-button privacyPolicyLink">Política de Privacidad</button>
+    </div>
+
+    <div id="resetSection" class="auth-section">
+        <h2>Recuperar Contraseña</h2>
+        <p>Ingresa tu correo electrónico registrado.</p>
+        <form id="resetForm" novalidate>
+            <label for="resetEmail">Correo Electrónico:</label>
+            <input type="email" id="resetEmail" name="email" required autocomplete="email">
+            <div id="resetMessage" class="message"></div>
+            <button type="submit" id="resetButton" data-original-text="Enviar Correo">Enviar Correo</button>
+        </form>
+        <button id="goToLoginFromResetBtn" class="link-button">Volver a Inicio de Sesión</button>
+        <button class="link-button privacyPolicyLink">Política de Privacidad</button>
+    </div>
+</div>
+
+<script type="module" src="js/firebase-init.js"></script>
+<script type="module" src="js/common.js"></script>
+<script type="module" src="js/auth-logic.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Reseñas - ¡¿Qué está haciendo?!</title>
+     <link rel="stylesheet" href="css/style.css"> </head>
+<body>
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>Verificando sesión...</p>
+    </div>
+
+    <div class="container">
+        <main>
+            <div class="user-info-bar">
+                <span id="userInfo">Cargando...</span>
+                <button id="logoutButton" style="display: none;">Salir</button>
+            </div>
+
+            <div id="myReviewsPage">
+                <h2>Mis Reseñas Enviadas</h2>
+                <div id="myReviewsMessage" class="message"></div>
+                <hr style="border-style: dashed;">
+                <div id="myReviewsList"> /* Lista se rellena con JS */ </div>
+
+                <hr style="margin-top: 30px;">
+                <div style="text-align: center; margin-top: 20px; padding-bottom: 20px;">
+                    <button id="deleteAccountBtn" class="button-delete" data-original-text="Eliminar Mi Cuenta">Eliminar Mi Cuenta</button>
+                    <small style="display:block; margin-top: 8px;">Esta acción es permanente.</small>
+                </div>
+            </div>
+        </main>
+
+    </div>
+    <div id="confirmationModal" class="modal-overlay" style="display: none;"> <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <h3 id="modalTitle">Confirmar Acción</h3>
+        <p id="modalMessage" style="white-space: pre-wrap;">¿Estás seguro?</p> <div class="modal-buttons">
+        <button id="modalCancelBtn" class="button-cancel" data-original-text="Cancelar">Cancelar</button>
+        <button id="modalConfirmBtn" class="button-confirm" data-original-text="Confirmar">Confirmar</button>
+    </div>
+    </div>
+    </div>
+     <script type="module" src="js/firebase-init.js"></script>
+     <script type="module" src="js/common.js"></script>
+     <script type="module" src="js/database-logic.js"></script>
+     <script type="module" src="js/myreviews-logic.js"></script>
+</body>
+</html>

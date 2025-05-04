@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar - ¡¿Qué está haciendo?!</title>
+    <link rel="stylesheet" href="css/style.css"> </head>
+<body>
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>Verificando sesión...</p>
+    </div>
+
+    <div class="container">
+        <main>
+            <div class="user-info-bar">
+                <span id="userInfo">Cargando...</span>
+                <button id="logoutButton" style="display: none;">Salir</button>
+            </div>
+
+            <div id="consultPage">
+                 <h2>Consultar Placa</h2>
+                 <div class="limit-info">
+                     Consultas restantes hoy: <span id="consultationLimit" style="font-weight: bold;">?</span>
+                     </div>
+                 <hr>
+                <form id="consultForm" novalidate>
+                     <label for="consultTipo">Tipo de Placa:</label>
+                     <select id="consultTipo" name="tipo" required>
+                          <option value="">Seleccione...</option>
+                          </select>
+
+                     <label for="consultPlaca">Número de Placa:</label>
+                     <input type="text" id="consultPlaca" name="placa" required maxlength="6" pattern="[A-Za-z0-9]{1,6}" placeholder="ABC123 / 123456" style="text-transform:uppercase;">
+                     <small>Máximo 6 letras/números.</small>
+
+                     <div id="consultMessage" class="message"></div>
+                     <button type="submit" id="consultBtn" data-original-text="Consultar">Consultar</button>
+                 </form>
+
+                 <div id="consultResults">
+                     </div>
+            </div>
+        </main>
+
+    </div>
+    <div id="confirmationModal" class="modal-overlay" style="display: none;"> <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <h3 id="modalTitle">Confirmar Acción</h3>
+        <p id="modalMessage" style="white-space: pre-wrap;">¿Estás seguro?</p> <div class="modal-buttons">
+        <button id="modalCancelBtn" class="button-cancel" data-original-text="Cancelar">Cancelar</button>
+        <button id="modalConfirmBtn" class="button-confirm" data-original-text="Confirmar">Confirmar</button>
+    </div>
+    </div>
+    </div>
+    <script type="module" src="js/firebase-init.js"></script>
+    <script type="module" src="js/common.js"></script>
+    <script type="module" src="js/database-logic.js"></script>
+    <script type="module" src="js/consult-logic.js"></script>
+</body>
+</html>
